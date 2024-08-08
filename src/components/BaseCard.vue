@@ -1,15 +1,21 @@
 <template>
   <div>
     <!-- creating a new slot -->
-    <header>
-      <slot name="header"></slot>
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- <h2>Default</h2> -->
+      </slot>
     </header>
     <!-- create a above slot with the name as header -->
     <slot></slot>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  mounted() {
+    console.log(this.$slots.header);
+  },
+};
 </script>
 
 <style scoped>
